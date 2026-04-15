@@ -38,9 +38,13 @@ const clientesMoneyPal: Cliente[] = [
     clientesMoneyPal[posicionIndex]!.membresia = 'VIP';
     console.log(clientesMoneyPal);
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+
     console.log('Todos los usuarios VIP están verificados?: ')
     const todosVerificados = clientesMoneyPal.filter(cliente => cliente.membresia === 'VIP').every(vip => vip.verificado === true); 
     console.log(todosVerificados); 
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     console.log('Existen usuarios que tengan alguna deuda actualmente?: ')
     const existenDeudores = clientesMoneyPal.some(cliente => cliente.saldo < 0); 
