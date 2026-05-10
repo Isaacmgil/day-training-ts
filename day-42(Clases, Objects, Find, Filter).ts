@@ -20,12 +20,12 @@ class CuentaBancariaSegura {
 
   depositarSeguro(monto: number){
     this.saldo += monto; 
-    this.historial.push(`Depósito de ${monto}`); 
+    this.historial.push(`Depósito de ${monto}$`); 
   }
 
   retirarSeguro(monto: number){
     this.saldo -= monto; 
-    this.historial.push(`Retiro de ${monto}`); 
+    this.historial.push(`Retiro de ${monto}$`); 
   }
 
 
@@ -37,7 +37,7 @@ const miCuentaSegura = new CuentaBancariaSegura('Isaac', 500);
 miCuentaSegura.depositarSeguro(200); 
 miCuentaSegura.retirarSeguro(300);
 miCuentaSegura.retirarSeguro(100);
-console.log(miCuentaSegura)
+console.log(miCuentaSegura.saldoActual)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
