@@ -63,3 +63,58 @@ miEmpresa.contratar(empleado2);
 
 miEmpresa.calcularNominaTotal();
 console.log(`Total a pagar en nómina este mes: ${miEmpresa.calcularNominaTotal()}`); // Debería mostrar 2200, sumando el bono de Isaac y el salario de ambos.
+
+
+//Nos mudamos del departamento de Recursos Humanos al Inventario de un Videojuego RPG.
+
+interface ItemInventario {
+    readonly idReliquia: string; 
+    nombre: string;
+    valorBaseOro: number; 
+    bonusGemaMagica?: number; 
+}
+
+
+class TasadorMochila {
+    private itemsAComprar: ItemInventario[]
+    constructor(){
+        this.itemsAComprar = []; 
+    }
+
+    recibirItem(nuevoItem: ItemInventario){
+        this.itemsAComprar.push(nuevoItem); 
+    }
+
+    calcularPagoTotal(){
+        let totalOro = 0; 
+        this.itemsAComprar.forEach((item) => {
+            totalOro += item.valorBaseOro; 
+            if(item.bonusGemaMagica){
+                totalOro += item.bonusGemaMagica
+            }
+        })
+        return totalOro; 
+
+    }
+}
+
+const mercader = new TasadorMochila(); 
+
+const espada: ItemInventario = {
+    idReliquia: 'WEP-001', 
+    nombre: 'Espada de Hierro', 
+    valorBaseOro: 150, 
+
+}; 
+
+const escudo: ItemInventario = {
+    idReliquia: 'SHD-009',
+    nombre: 'Escudo de dragon', 
+    valorBaseOro: 300, 
+    bonusGemaMagica: 50
+}
+
+mercader.recibirItem(espada);
+mercader.recibirItem(escudo);
+
+console.log(`El mercader te pagará un total de: ${mercader.calcularPagoTotal()} monedas de oro.`);
